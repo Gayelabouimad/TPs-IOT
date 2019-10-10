@@ -58,7 +58,7 @@ void setup()
   // Setup BandWidth, option: 7800,10400,15600,20800,31250,41700,62500,125000,250000,500000
   //Lower BandWidth for longer distance.
 //  rf95.setSignalBandwidth(125000);
-rf95.setSignalBandwidth(31250);
+rf95.setSignalBandwidth(125000);
   
   // Setup Coding Rate:5(4/5),6(4/6),7(4/7),8(4/8) 
   rf95.setCodingRate4(5);
