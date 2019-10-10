@@ -1,6 +1,6 @@
 import serial #Serial imported for Serial communication
 import time #Required to use delay functions
-
+# i added a comment
 def initialize() :
     ArduinoSerial = serial.Serial('com4',115200)
     time.sleep(2)
