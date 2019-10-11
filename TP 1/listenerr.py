@@ -2,7 +2,7 @@ import serial #Serial imported for Serial communication
 import time #Required to use delay functions
 # i added a comment
 def initialize() :
-    ArduinoSerial = serial.Serial('com4',115200)
+    ArduinoSerial = serial.Serial('com3',115200)
     time.sleep(2)
     return ArduinoSerial
 
@@ -21,7 +21,7 @@ def main():
         print(".\n")
         liste1 = read(AS, liste1)
         i += 1
-    f = open("BW500000.txt", "w")
+    f = open("CR8.txt", "w")
     f.write(str(liste1))
     f.close()
     print(liste1)
