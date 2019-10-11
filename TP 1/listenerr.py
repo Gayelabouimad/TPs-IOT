@@ -21,7 +21,7 @@ def main():
         print(".\n")
         liste1 = read(AS, liste1)
         i += 1
-    f = open("CR8.txt", "w")
+    f = open("DATA10.txt", "w")
     f.write(str(liste1))
     f.close()
     print(liste1)

@@ -21,7 +21,7 @@ RH_RF95 rf95;
 //The parameter are pre-set for 868Mhz used. If user want to use lower frenqucy 433Mhz.Better to set 
 //rf95.setSignalBandwidth(31250);
 //rf95.setCodingRate4(8);
-float frequency = 868.9;
+float frequency = 868.3;
 
 void setup()
 {
@@ -61,7 +61,7 @@ void setup()
 rf95.setSignalBandwidth(125000);
   
   // Setup Coding Rate:5(4/5),6(4/6),7(4/7),8(4/8) 
-  rf95.setCodingRate4(8);
+  rf95.setCodingRate4(5);
   
   /*
   //Different Combination for distance and speed examples: 
@@ -93,11 +93,12 @@ void loop()
 //  Serial.println("Sending to rf95_server");
   // Send a message to rf95_server
   // Beware of the maximum message size
-  uint8_t data[] = "Hi, from outer space!";
+  uint8_t data[] = "Mini mess";
 
   time0 = micros();
   
   rf95.send(data, sizeof(data));
+  Serial.println(sizeof(data));
   rf95.waitPacketSent();
 
   time = micros();
