@@ -52,7 +52,7 @@ void setup()
   rf95.setTxPower(13);
 
   // Setup Spreading Factor (6 ~ 12)
-  rf95.setSpreadingFactor(7);
+  rf95.setSpreadingFactor(10);
   
   
   // Setup BandWidth, option: 7800,10400,15600,20800,31250,41700,62500,125000,250000,500000
@@ -84,7 +84,7 @@ rf95.setSignalBandwidth(125000);
   */
 }
 
-unsigned long time; 
+unsigned long time1; 
 unsigned long time0;
 unsigned long diff;
 
@@ -93,17 +93,18 @@ void loop()
 //  Serial.println("Sending to rf95_server");
   // Send a message to rf95_server
   // Beware of the maximum message size
-  uint8_t data[] = "Mini mess";
-
-  time0 = micros();
+//  uint8_t data[] = "Mini mess";
+  uint8_t data[] = "Hi, from outer space!";
   
+  time0 = micros();
+//  Serial.println(time0);
+
   rf95.send(data, sizeof(data));
   Serial.println(sizeof(data));
   rf95.waitPacketSent();
-
-  time = micros();
-   
-  diff = time - time0; 
+  time1 = micros();
+// Serial.println(time1);
+  diff = time1 - time0; 
 //  Serial.print("ToA = ");
   Serial.println(diff);
 

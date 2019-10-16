@@ -7,10 +7,29 @@ def getData(file):
     SF.close()
     return values
 
-def drawFig(Data):
-    fig1, ax1 = plt.subplots()
-    ax1.set_title('Basic Plot')
-    ax1.boxplot(Data)
+def convertValuesToMilli(liste):
+    newList = []
+    for i in liste:
+        newList.append(i/1000)
+    return newList
+
+def drawFig(Data, SF):
+    fig, axs = plt.subplots(2,2)
+
+    # SF = 7
+    axs[0, 0].set_title('BoxPlot for SF = '+ str(SF[0]) + 'in Milliseconds', pad = 20)
+    axs[0, 0].boxplot(Data[0], patch_artist = 'True',  labels =[SF[0]])
+
+    # SF = 8
+    axs[0, 1].set_title('BoxPlot for SF = '+ str(SF[1]) + 'in Milliseconds', pad = 20)
+    axs[0, 1].boxplot(Data[1], patch_artist = 'True',  labels =[SF[1]])
+
+    # SF = 9
+    axs[1, 0].set_title('BoxPlot for SF = '+ str(SF[2]) + 'in Milliseconds', pad = 20)
+    axs[1, 0].boxplot(Data[2], patch_artist = 'True',  labels =[SF[2]])
+
+    fig.subplots_adjust(hspace=0.4, wspace=0.4)
+
     plt.show()
 
 def main():
@@ -18,7 +37,13 @@ def main():
     SF9values = ast.literal_eval(getData("SF9.txt"))
     SF10values = ast.literal_eval(getData("SF10.txt"))
 
-    drawFig([SF7values, SF9values, SF10values])
+    # changing scale```
+    SF7values_scaled = convertValuesToMilli(SF7values)
+    SF9values_scaled = convertValuesToMilli(SF9values)
+    SF10values_scaled = convertValuesToMilli(SF10values)
+    print(SF7values_scaled)
+
+    drawFig([SF7values_scaled, SF9values_scaled, SF10values_scaled], [7 ,9 ,10])
 
 main()
 
