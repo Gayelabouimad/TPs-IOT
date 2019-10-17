@@ -17,15 +17,15 @@ def drawFig(Data, SF):
     fig, axs = plt.subplots(2,2)
 
     # SF = 7
-    axs[0, 0].set_title('BoxPlot for SF = '+ str(SF[0]) + 'in Milliseconds', pad = 20)
+    axs[0, 0].set_title('BoxPlot for SF = '+ str(SF[0]) + ' in Milliseconds', pad = 20)
     axs[0, 0].boxplot(Data[0], patch_artist = 'True',  labels =[SF[0]])
 
     # SF = 8
-    axs[0, 1].set_title('BoxPlot for SF = '+ str(SF[1]) + 'in Milliseconds', pad = 20)
+    axs[0, 1].set_title('BoxPlot for SF = '+ str(SF[1]) + ' in Milliseconds', pad = 20)
     axs[0, 1].boxplot(Data[1], patch_artist = 'True',  labels =[SF[1]])
 
     # SF = 9
-    axs[1, 0].set_title('BoxPlot for SF = '+ str(SF[2]) + 'in Milliseconds', pad = 20)
+    axs[1, 0].set_title('BoxPlot for SF = '+ str(SF[2]) + ' in Milliseconds', pad = 20)
     axs[1, 0].boxplot(Data[2], patch_artist = 'True',  labels =[SF[2]])
 
     fig.subplots_adjust(hspace=0.4, wspace=0.4)
