@@ -21,7 +21,7 @@ RH_RF95 rf95;
 //The parameter are pre-set for 868Mhz used. If user want to use lower frenqucy 433Mhz.Better to set 
 //rf95.setSignalBandwidth(31250);
 //rf95.setCodingRate4(8);
-float frequency = 868.3;
+float frequency = 866.7;
 
 void setup()
 {
@@ -52,7 +52,7 @@ void setup()
   rf95.setTxPower(13);
 
   // Setup Spreading Factor (6 ~ 12)
-  rf95.setSpreadingFactor(10);
+  rf95.setSpreadingFactor(7);
   
   
   // Setup BandWidth, option: 7800,10400,15600,20800,31250,41700,62500,125000,250000,500000
@@ -84,29 +84,17 @@ rf95.setSignalBandwidth(125000);
   */
 }
 
-unsigned long time1; 
-unsigned long time0;
-unsigned long diff;
-
 void loop()
-{ 
-//  Serial.println("Sending to rf95_server");
-  // Send a message to rf95_server
-  // Beware of the maximum message size
-//  uint8_t data[] = "Mini mess";
-  uint8_t data[] = "Hi, from outer space!";
-  
-  time0 = micros();
-//  Serial.println(time0);
-
-  rf95.send(data, sizeof(data));
-  Serial.println(sizeof(data));
-  rf95.waitPacketSent();
-  time1 = micros();
-// Serial.println(time1);
-  diff = time1 - time0; 
-//  Serial.print("ToA = ");
-  Serial.println(diff);
-
-  delay(1000);
+{   
+  int myGroupID = 9.0;
+  int averageWait = 5000;
+  for (int i = 0; i < 100; i++){
+    String data = "Sender#"+String(myGroupID)+":"+String(i)+":"+"Hello World";
+    uint8_t buf[30];
+    data.toCharArray(buf, 30);
+    rf95.send(buf, sizeof(buf));
+    rf95.waitPacketSent();
+    Serial.print(data);
+    delay(averageWait);
+  }
 }
