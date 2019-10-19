@@ -52,7 +52,7 @@ void setup()
   rf95.setTxPower(13);
 
   // Setup Spreading Factor (6 ~ 12)
-  rf95.setSpreadingFactor(7);
+  rf95.setSpreadingFactor(9);
   
   
   // Setup BandWidth, option: 7800,10400,15600,20800,31250,41700,62500,125000,250000,500000
@@ -87,9 +87,9 @@ rf95.setSignalBandwidth(125000);
 void loop()
 {   
   int myGroupID = 9;
-  int averageWait = 5000;
-  for (int i = 0; i < 100; i++){
-    String data = "Sender#"+String(myGroupID)+".0"+":"+String(i)+":"+"Hello World";
+  int averageWait = 20000;
+  for (int i = 0; i < 30; i++){
+    String data = "Sender#"+String(myGroupID)+".0"+":"+String(i)+":"+"Hello world";
     uint8_t buf[30];
     data.toCharArray(buf, 30);
     rf95.send(buf, sizeof(buf));
