@@ -45,8 +45,8 @@ Note : Groupe 9	--> freq = 868.3
 - [x] Modify Params and track changes (repeat 100 times)
 
 - [x] Do the theoretical computation
-- [ ] add theoretical values to experimental graph
+- [x] add theoretical values to experimental graph
 - [x] Describe the scenarios you used for assessing the impact of the different parameters on the ToA.
 - [x] Join commented extracts of your code and raw data in attached files.
 - [x] Visualise the experimental results by plotting the ToA as a function of each one of the different parameters.
-- [ ] Analyze the obtained results and compare with the theoretical computations. You can superpose the theoretical results and the experimental ones on the same graph.
+- [x] Analyze the obtained results and compare with the theoretical computations. You can superpose the theoretical results and the experimental ones on the same graph.
