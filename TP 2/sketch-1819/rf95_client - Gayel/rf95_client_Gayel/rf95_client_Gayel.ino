@@ -86,10 +86,10 @@ rf95.setSignalBandwidth(125000);
 
 void loop()
 {   
-  int myGroupID = 9.1;
+  int myGroupID = 9;
   int averageWait = 5000;
   for (int i = 0; i < 100; i++){
-    String data = "Sender------------------------------#"+String(myGroupID)+":"+String(i)+":"+"Hello World";
+    String data = "Sender#"+String(myGroupID)+".1:"+String(i)+":"+"Hello World";
     uint8_t buf[50];
     data.toCharArray(buf, 50);
     rf95.send(buf, sizeof(buf));
