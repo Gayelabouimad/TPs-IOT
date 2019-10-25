@@ -50,3 +50,11 @@ Note : Groupe 9	--> freq = 868.3
 - [x] Join commented extracts of your code and raw data in attached files.
 - [x] Visualise the experimental results by plotting the ToA as a function of each one of the different parameters.
 - [x] Analyze the obtained results and compare with the theoretical computations. You can superpose the theoretical results and the experimental ones on the same graph.
+
+
+
+## TP2 - Exploring LoRa Technology - Collisions and Packet Delivery Ratio
+
+The deliverable should include the answers to the questions in IoT Labs: Exploring LoRa
+
+Section 4.2
