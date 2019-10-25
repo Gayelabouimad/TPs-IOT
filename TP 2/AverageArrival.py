@@ -20,6 +20,19 @@ for sender in liste_arrivee:
     else:
         dictio[str(sender)] = 1
 
-print(dictio)
+dictio_average = {}
 
-print(len(dictio))
+for key in dictio.keys():
+    dictio_average[key] = dictio[key]/100
+
+print(dictio_average)
+
+dictio_all_average = {}
+
+somme = 0
+for value in dictio_average.values():
+    somme = somme + float(value)
+
+average = somme/21
+
+print (average*100, "% des messages ont ete recus")
