@@ -28,7 +28,7 @@ def generateSecondDict(firstDict):
 
     return dictio_average
 
-def generateThirdDict(secondDict):
+def generateAVG(secondDict):
     somme = 0
     for value in secondDict.values():
         somme = somme + float(value)
@@ -38,7 +38,7 @@ def main():
     data = getData('log_sf7_5s_100.csv')
     nb_msg_recu_par_pers = generateFirstDict(data)
     avg_msg_par_pers = generateSecondDict(nb_msg_recu_par_pers)
-    average = generateThirdDict(avg_msg_par_pers)
+    average = generateAVG(avg_msg_par_pers)
     print (average*100, "% des messages ont ete recus")
 
 main()
