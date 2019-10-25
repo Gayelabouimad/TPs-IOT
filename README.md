@@ -58,3 +58,6 @@ Note : Groupe 9	--> freq = 868.3
 The deliverable should include the answers to the questions in IoT Labs: Exploring LoRa
 
 Section 4.2
+
+- [ ] Draw the PDR as a function of the average arrival rate. Analyze your results.
+- [ ] What type of mathematical model enables to theoretically compute the PDR? Verify the obtained results.
