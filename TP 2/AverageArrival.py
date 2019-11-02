@@ -21,24 +21,25 @@ def generateFirstDict(data):
             dictio[str(sender)] = 1
     return dictio
 
-def generateSecondDict(firstDict):
+def generateSecondDict(firstDict, numberOfMsgSent):
     dictio_average = {}
     for key in firstDict.keys():
-        dictio_average[key] = firstDict[key]/100
-
+        dictio_average[key] = firstDict[key]/numberOfMsgSent
+    print("Average Doctionnary: ", dictio_average)
     return dictio_average
 
-def generateAVG(secondDict):
+def generateAVG(secondDict, numberOfDevices):
     somme = 0
+    
     for value in secondDict.values():
         somme = somme + float(value)
-    return somme/21
+    return somme/numberOfDevices
 
 def main():
     data = getData('log_sf7_5s_100.csv')
     nb_msg_recu_par_pers = generateFirstDict(data)
-    avg_msg_par_pers = generateSecondDict(nb_msg_recu_par_pers)
-    average = generateAVG(avg_msg_par_pers)
+    avg_msg_par_pers = generateSecondDict(nb_msg_recu_par_pers, 100)
+    average = generateAVG(avg_msg_par_pers, 21)
     print (average*100, "% des messages ont ete recus")
 
 main()
