@@ -1,17 +1,12 @@
 import matplotlib.pyplot as plt
-import ast
+import json
 
 def getData(file):
-    CR = open(file, "r")
-    values = CR.read()
-    CR.close()
+    with open(file, "r") as BW:
+        values = json.loads(BW.read())
+    # changing scale
+    values = [int(x)/1000 for x in values]
     return values
-
-def convertValuesToMilli(liste):
-    newList = []
-    for i in liste:
-        newList.append(i/1000)
-    return newList
 
 def drawFig(Data, CR):
     fig, axs = plt.subplots(2,2)
@@ -39,19 +34,14 @@ def drawFig(Data, CR):
 
 
 def main():
-    CR5values = ast.literal_eval(getData("CR5.txt"))
-    CR6values = ast.literal_eval(getData("CR6.txt"))
-    CR7values = ast.literal_eval(getData("CR7.txt"))
-    CR8values = ast.literal_eval(getData("CR8.txt"))
+    CR5values = getData("CR5.txt")
+    CR6values = getData("CR6.txt")
+    CR7values = getData("CR7.txt")
+    CR8values = getData("CR8.txt")
 
-    # changing scale```
-    CR5values_scaled = convertValuesToMilli(CR5values)
-    CR6values_scaled = convertValuesToMilli(CR6values)
-    CR7values_scaled = convertValuesToMilli(CR7values)
-    CR8values_scaled = convertValuesToMilli(CR8values)
     # print(SF7values_scaled)
 
-    drawFig([CR5values_scaled, CR6values_scaled, CR7values_scaled, CR8values_scaled], [5 ,6 ,7, 8])
+    drawFig([CR5values, CR6values, CR7values, CR8values], [5 ,6 ,7, 8])
 
 main()
 

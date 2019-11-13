@@ -1,17 +1,12 @@
 import matplotlib.pyplot as plt
-import ast
+import json
 
 def getData(file):
-    BW = open(file, "r")
-    values = BW.read()
-    BW.close()
+    with open(file, "r") as BW:
+        values = json.loads(BW.read())
+    # changing scale
+    values = [int(x)/1000 for x in values]
     return values
-
-def convertValuesToMilli(liste):
-    newList = []
-    for i in liste:
-        newList.append(i/1000)
-    return newList
 
 def drawFig(Data, BW):
     fig, axs = plt.subplots(3,2)
@@ -40,20 +35,13 @@ def drawFig(Data, BW):
     plt.show()
 
 def main():
-    BW20800values = ast.literal_eval(getData("BW20800.txt"))
-    BW31250values = ast.literal_eval(getData("BW31250.txt"))
-    BW62500values = ast.literal_eval(getData("BW62500.txt"))
-    BW125000values = ast.literal_eval(getData("BW125000.txt"))
-    BW500000values = ast.literal_eval(getData("BW500000.txt"))
+    BW20800values = getData("BW20800.txt")
+    BW31250values = getData("BW31250.txt")
+    BW62500values = getData("BW62500.txt")
+    BW125000values = getData("BW125000.txt")
+    BW500000values = getData("BW500000.txt")
 
-    # changing scale```
-    BW20800values_scaled = convertValuesToMilli(BW20800values)
-    BW31250values_scaled = convertValuesToMilli(BW31250values)
-    BW62500values_scaled = convertValuesToMilli(BW62500values)
-    BW125000values_scaled = convertValuesToMilli(BW125000values)
-    BW500000values_scaled = convertValuesToMilli(BW500000values)
-
-    drawFig([BW20800values_scaled, BW31250values_scaled, BW62500values_scaled, BW125000values_scaled, BW500000values_scaled], [20800, 31250, 62500, 125000, 500000])
+    drawFig([BW20800values, BW31250values, BW62500values, BW125000values, BW500000values], [20800, 31250, 62500, 125000, 500000])
 
 main()
 
