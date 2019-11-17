@@ -1,17 +1,12 @@
 import matplotlib.pyplot as plt
-import ast
+import json
 
 def getData(file):
-    Data = open(file, "r")
-    values = Data.read()
-    Data.close()
+    with open(file, "r") as BW:
+        values = json.loads(BW.read())
+    # changing scale
+    values = [int(x)/1000 for x in values]
     return values
-
-def convertValuesToMilli(liste):
-    newList = []
-    for i in liste:
-        newList.append(i/1000)
-    return newList
 
 def drawFig(Data, size):
     fig, axs = plt.subplots(2,2)
@@ -33,15 +28,11 @@ def drawFig(Data, size):
     plt.show()
 
 def main():
-    D10 = ast.literal_eval(getData("DATA10.txt"))
-    D22 = ast.literal_eval(getData("DATA22.txt"))
-    D43 = ast.literal_eval(getData("DATA43.txt"))
+    D10 = getData("DATA10.txt")
+    D22 = getData("DATA22.txt")
+    D43 = getData("DATA43.txt")
 
-    D10_scaled = convertValuesToMilli(D10)
-    D22_scaled = convertValuesToMilli(D22)
-    D43_scaled = convertValuesToMilli(D43)
-
-    drawFig([D10_scaled, D22_scaled, D43_scaled], [10, 22, 43])
+    drawFig([D10, D22, D43], [10, 22, 43])
 
 main()
 
