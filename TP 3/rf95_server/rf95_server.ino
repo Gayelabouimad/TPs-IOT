@@ -22,7 +22,7 @@ void setup()
   rf95.setTxPower(13);
 
   // Setup Spreading Factor (6 ~ 12)
-  rf95.setSpreadingFactor(9);
+  rf95.setSpreadingFactor(7);
   
   // Setup BandWidth, option: 7800,10400,15600,20800,31250,41700,62500,125000,250000,500000
   //Lower BandWidth for longer distance.
